@@ -502,41 +502,6 @@ section {
   color: #b0b0cc;
 }
 
-/* ── STAT STRIP ── */
-.stat-strip {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1px;
-  background: var(--rule);
-  border: 1px solid var(--rule);
-  border-radius: 4px;
-  overflow: hidden;
-  margin-top: 40px;
-}
-
-.stat-item {
-  background: var(--bg2);
-  padding: 24px 22px;
-  text-align: center;
-}
-
-.stat-num {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 36px;
-  font-weight: 800;
-  color: var(--green);
-  line-height: 1;
-  margin-bottom: 6px;
-}
-
-.stat-label {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
 /* ── COMPETITIVE CONTEXT ── */
 .context-grid {
   display: grid;
@@ -658,7 +623,6 @@ footer {
   .context-grid { grid-template-columns: 1fr; }
   .bl-grid { grid-template-columns: 1fr; }
   .product-header { flex-direction: column; }
-  .stat-strip { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 768px) {
@@ -722,14 +686,14 @@ footer {
 <section id="overview">
   <div class="section-eyebrow">The Portfolio</div>
   <h2 class="section-title">Three platforms. <em>One story.</em></h2>
-  <p class="section-intro">Each product solves a different problem. Together they form a technology thesis: that the holding company of the future is built on proprietary intelligence, not just talent and relationships.</p>
+  <p class="section-intro">Each product solves a different problem. Together they represent Stagwell's bet on what marketing infrastructure looks like in an AI-first era: a proprietary identity layer, a connected operating system, and a suite of purpose-built software.</p>
 
   <div class="overview-grid">
     <a href="#machine" class="overview-card" style="text-decoration:none;color:inherit;">
       <div class="oc-num">01</div>
       <span class="oc-tag tag-machine">Agentic OS</span>
       <div class="oc-title">The Machine</div>
-      <div class="oc-body">An AI operating system that orchestrates people, tools, and data. Built by Code and Theory. Launched CES 2026.</div>
+      <div class="oc-body">Plugs into the tools you already use and turns disconnected workflows into one unified system. Built by Code and Theory. Launched CES 2026.</div>
       <div class="oc-cta">&rarr; Deep dive</div>
     </a>
     <a href="#palantir" class="overview-card" style="text-decoration:none;color:inherit;">
@@ -762,21 +726,20 @@ footer {
         Clients: Qualcomm, TIME, Stanley Black & Decker, T. Rowe Price, Henry Schein
       </div>
       <div class="product-desc">
-        <p>The Machine is an AI operating system that unifies people, tools, and data to orchestrate more intelligent work. It ingests and acts on large volumes of private, secure signals &mdash; client data, Stagwell proprietary sources, world knowledge, and trusted third parties &mdash; and uses all of that to make work faster, smarter, and more connected to real consumer behavior.</p>
-        <p>It has its own interface and also runs inside tools people already use &mdash; Adobe, Slack, Teams &mdash; through purpose-built plugins called <strong>Mini-Machines</strong>. It is platform-agnostic and API-first.</p>
+        <p>The Machine doesn't replace the tools marketing teams already use &mdash; it makes them more effective. It's designed to plug into the systems and data sources already in place: tools like Figma, Slack, Teams, Adobe, and performance dashboards, and beyond. It turns what were disconnected workflows into a single unified system powered by AI agents. No ripping out infrastructure. No new interface to onboard to. Intelligence shows up where work already happens, through purpose-built plugins called <strong>Mini-Machines</strong>.</p>
+        <p>The core idea behind The Machine is compounding. Every brief, creative asset, and media plan feeds a system that learns, adapts, and builds on itself. Each campaign makes the next one faster, smarter, and more effective. As Code and Theory CEO Michael Treff described it: "Every campaign felt like starting from zero. We built The Machine to solve that fundamental problem."</p>
       </div>
     </div>
   </div>
 
-  <div class="pull-quote fade-in">
-    <p>The holdcos built AI on top of existing agency structures. The Machine is built around a different premise: that the workflow itself changes.</p>
+  <div class="section-eyebrow fade-in">What makes it different</div>
+
+  <div class="product-desc fade-in" style="max-width:680px;margin-bottom:8px;">
+    <p>Most marketing AI tools ask you to rip out your infrastructure and start over. The Machine does the opposite. Dan Gardner, Founder and Chairman of Code and Theory, framed it plainly: "It works where you work, improves and AI enables the tools you already use, and transforms existing operations into an agentic system. That's the shift from isolated tools to a unified operating system."</p>
+    <p>The ambition goes beyond workflow efficiency. The Machine connects brand strategy, creative production, and media performance into a single source of truth &mdash; what Stagwell calls a "unified strategic spine." The goal is that every new campaign builds on what the last one learned, rather than resetting. High-volume production work &mdash; adapting assets across formats, markets, and audience segments &mdash; can be handled by agents, freeing teams to focus on strategy and creative oversight. As Treff put it: "Getting to a million assets is great, but getting to the right asset is the hardest part."</p>
   </div>
 
-  <div class="product-desc fade-in" style="max-width:680px;margin-bottom:40px;">
-    <p>Strategy, creative, and production stop being sequential handoffs and become an orchestrated, continuously running system &mdash; where every brief informs an asset, every asset informs a buy, and the whole thing gets smarter over time.</p>
-  </div>
-
-  <div class="section-eyebrow fade-in">What it actually does</div>
+  <div class="section-eyebrow fade-in" style="margin-top:48px;">What it actually does</div>
   <h3 class="section-title fade-in" style="font-size:32px;margin-bottom:24px;">Four live <em>use cases.</em></h3>
 
   <div class="detail-accordion fade-in">
@@ -785,12 +748,12 @@ footer {
         <div class="detail-num">01</div>
         <div class="detail-label">
           <div class="detail-label-title">Brand <em>Affinity</em></div>
-          <div class="detail-label-hint">AI-powered positioning and cultural white space analysis</div>
+          <div class="detail-label-hint">Positioning opportunities and cultural white space</div>
         </div>
         <div class="detail-toggle">+ more</div>
       </button>
       <div class="detail-expand">
-        <div class="detail-expand-inner">Identifies positioning opportunities and cultural white space through AI-powered market analysis, then helps craft strategies that authentically connect with target audiences. Turns what used to be months of brand strategy work into a continuously updated, intelligence-driven process.</div>
+        <div class="detail-expand-inner">Identifies positioning opportunities and cultural white space through AI-powered market analysis, then helps craft strategies that authentically connect with target audiences.</div>
       </div>
     </div>
     <div class="detail-item">
@@ -803,7 +766,7 @@ footer {
         <div class="detail-toggle">+ more</div>
       </button>
       <div class="detail-expand">
-        <div class="detail-expand-inner">Creates precision-targeted content variations at scale &mdash; dozens of versions in the time it traditionally takes to produce one &mdash; personalized across channels, markets, and audience segments. The creative doesn't just get made faster; it gets made smarter, with each variation informed by real audience data.</div>
+        <div class="detail-expand-inner">Creates precision-targeted content variations at scale &mdash; dozens of versions in the time it traditionally takes to produce one &mdash; personalized across channels, markets, and audience segments.</div>
       </div>
     </div>
     <div class="detail-item">
@@ -816,7 +779,7 @@ footer {
         <div class="detail-toggle">+ more</div>
       </button>
       <div class="detail-expand">
-        <div class="detail-expand-inner">Monitors cultural signals and trending moments in real time, then activates instantly with the right talent and influencers &mdash; from signal to live campaign in a fraction of traditional timelines. The window of relevance is shrinking; this is how you stay inside it.</div>
+        <div class="detail-expand-inner">Monitors cultural signals and trending moments in real time, then activates instantly with the right talent and influencers &mdash; from signal to live campaign in a fraction of traditional timelines.</div>
       </div>
     </div>
     <div class="detail-item">
@@ -829,7 +792,7 @@ footer {
         <div class="detail-toggle">+ more</div>
       </button>
       <div class="detail-expand">
-        <div class="detail-expand-inner">Surfaces actionable insights from campaign data to continuously refine creative, optimize spend, and prove ROI &mdash; with reporting intelligence that updates assets in real time. Not a dashboard you check at the end of the quarter. A system that makes the work better while it's running.</div>
+        <div class="detail-expand-inner">Surfaces actionable insights from campaign data to continuously refine creative, optimize spend, and prove ROI &mdash; with reporting intelligence that updates assets in real time.</div>
       </div>
     </div>
   </div>
@@ -848,48 +811,25 @@ footer {
         The ID Graph underpins Stagwell's media and audience strategy tools
       </div>
       <div class="product-desc">
-        <p>The ID Graph is Stagwell's proprietary identity infrastructure &mdash; a system that connects a person's various digital signals (devices, email addresses, behavioral data, location patterns) into a single unified profile. This is what makes it possible to recognize the same person across different channels without relying on third-party cookies.</p>
-        <p>It powers Stagwell's media planning, buying, and audience strategy tools &mdash; giving those products a first-party-grounded view of who the audience actually is.</p>
+        <p>The ID Graph is Stagwell's proprietary identity infrastructure &mdash; a system that connects a person's various digital signals (devices, email addresses, behavioral data, location patterns) into a single unified profile. This is what makes it possible to recognize the same person across different channels without relying heavily on third-party cookies, which are neither fully alive nor fully dead &mdash; they're in a state of ongoing regulatory and browser-level erosion that makes them an increasingly unreliable planning foundation.</p>
+        <p>The ID Graph powers Stagwell's media planning, buying, and audience strategy tools &mdash; giving those products a first-party-grounded view of who the audience actually is.</p>
       </div>
     </div>
   </div>
 
-  <div class="stat-strip fade-in">
-    <div class="stat-item">
-      <div class="stat-num">85%</div>
-      <div class="stat-label">Stock move on announcement</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">1st</div>
-      <div class="stat-label">Ad holding co. Palantir partnered with</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">Harvard</div>
-      <div class="stat-label">OpenDP differential privacy framework</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">U.S. Census</div>
-      <div class="stat-label">Same privacy tech used by</div>
-    </div>
+  <div class="section-eyebrow fade-in">Where Palantir fits</div>
+
+  <div class="product-desc fade-in" style="max-width:680px;margin-bottom:8px;">
+    <p>Palantir's Foundry platform was built to process extraordinarily complex, large-scale data problems &mdash; originally for defense and intelligence use cases. The partnership brings that infrastructure to marketing: the ability to work across tens of millions of audience records with a level of precision and privacy architecture that most marketing data stacks aren't built to handle.</p>
+    <p>To be honest about the competitive context: Publicis (with Epsilon) and IPG (with Acxiom) have larger, more mature audience data businesses today. Stagwell's position isn't that it has the biggest data asset right now &mdash; it's that the architecture it's building with Palantir is designed for an AI-native era of targeting, not retrofitted from older infrastructure.</p>
   </div>
 
-  <div class="pull-quote fade-in">
-    <p>"The holy grail of marketing."</p>
-    <div class="attrib">&mdash; Mark Penn, Stagwell CEO</div>
-  </div>
+  <div class="section-eyebrow fade-in" style="margin-top:48px;">Why it got the market's attention</div>
 
-  <div class="context-grid fade-in">
-    <div class="context-card">
-      <h4>Why Palantir matters</h4>
-      <p>Palantir's Foundry platform was built to process extraordinarily complex, large-scale data problems &mdash; originally for defense and intelligence. The partnership brings that infrastructure to marketing: the ability to work across tens of millions of audience records with precision and privacy architecture most marketing data stacks can't handle.</p>
-      <p>Palantir essentially never partners with advertising companies. Their reference clients are governments and defense departments. The fact that they entered marketing at all &mdash; and chose Stagwell &mdash; is the signal.</p>
-    </div>
-    <div class="context-card">
-      <h4>Competitive honest take</h4>
-      <p>Publicis (with Epsilon) and IPG (with Acxiom) have larger, more mature audience data businesses today. Stagwell's position isn't that it has the biggest data asset right now.</p>
-      <p>It's that the architecture being built with Palantir is designed for an AI-native era of targeting, not retrofitted from older infrastructure. That's a genuine technical distinction, not a marketing claim.</p>
-      <p>The privacy architecture uses differential privacy developed with Harvard's OpenDP project &mdash; the same framework the U.S. Census uses &mdash; allowing precise targeting without exposing individual-level data.</p>
-    </div>
+  <div class="product-desc fade-in" style="max-width:680px;margin-bottom:8px;">
+    <p>Palantir essentially never partners with advertising companies. Their reference clients are governments, defense departments, and major intelligence organizations. The fact that they entered the marketing space at all &mdash; and chose to build with Stagwell &mdash; sent a signal the market reacted to immediately. Stagwell's stock moved 85% in a single day on the announcement. Mark Penn called it "the holy grail of marketing."</p>
+    <p>The privacy architecture is also genuinely distinctive: they're using differential privacy technology developed with Harvard's OpenDP project &mdash; the same framework the U.S. Census uses &mdash; which allows precise audience targeting without exposing individual-level data. That's a real technical position, not a marketing claim.</p>
+    <p>Why Palantir specifically chose Stagwell over other holding companies has not been formally stated. That choice is the signal. The reason behind it is worth asking them directly.</p>
   </div>
 </section>
 
@@ -906,22 +846,25 @@ footer {
         Software products purpose-built for marketing, available across the network and sold directly to clients
       </div>
       <div class="product-desc">
-        <p>The Marketing Cloud builds software products for specific marketing problems and makes them available across all Stagwell agencies and directly to clients. Some products are sold as software subscriptions &mdash; clients pay a recurring fee to use the tool themselves rather than paying for agency hours. That model scales without adding headcount and gets better the more it's used.</p>
+        <p>The Marketing Cloud (formerly Stagwell Marketing Cloud) is a suite of AI-powered solutions built for the modern marketer. Its products span market research, communications, creative, and media &mdash; all accessible through a single dashboard designed to cut through the complexity of today's fragmented martech ecosystem. What ties them together is Stagwell's proprietary attitudinal and behavioral data, built up through The Harris Poll and across the network, which runs underneath the AI models rather than sitting alongside them.</p>
       </div>
     </div>
   </div>
 
-  <div class="pull-quote fade-in">
-    <p>One problem solved becomes a shared capability. The network gets smarter every time any part of it figures something out.</p>
+  <div class="section-eyebrow fade-in">What's been added recently</div>
+
+  <div class="product-desc fade-in" style="max-width:680px;margin-bottom:8px;">
+    <p>In October 2025, The Marketing Cloud launched Agent Cloud: a secure, unified platform that gives brands and agencies access to leading AI models &mdash; from GPT to Gemini to Claude &mdash; in one place, without fragmented subscriptions or compliance risk. Since launch it has grown to more than 25,000 monthly agent interactions and 500+ custom-built agents. CEO Elspeth Rollert described the goal as "a 24/7 marketing experience with AI agents that empower marketers to achieve more, wherever they are."</p>
   </div>
 
-  <div class="section-eyebrow fade-in">The Products</div>
-  <h3 class="section-title fade-in" style="font-size:32px;margin-bottom:24px;">What's actually been <em>built.</em></h3>
+  <div class="section-eyebrow fade-in" style="margin-top:48px;">Featured products</div>
+  <h3 class="section-title fade-in" style="font-size:32px;margin-bottom:8px;">Examples of what's <em>been built.</em></h3>
+  <p class="product-desc fade-in" style="max-width:680px;margin-bottom:24px;font-size:14px;color:var(--muted);">These are distinct products solving distinct problems, built by one centralized team and available across the whole network. They represent a selection of what the Marketing Cloud includes.</p>
 
   <div class="detail-accordion fade-in">
     <div class="detail-item">
       <button class="detail-trigger" onclick="toggleDetail(this)">
-        <div class="detail-num">01</div>
+        <div class="detail-num">&#8226;</div>
         <div class="detail-label">
           <div class="detail-label-title">Harris <em>Quest</em></div>
           <div class="detail-label-hint">Real-time brand health tracking</div>
@@ -929,12 +872,12 @@ footer {
         <div class="detail-toggle">+ more</div>
       </button>
       <div class="detail-expand">
-        <div class="detail-expand-inner">Tracks brand health for 1,000+ brands across 21 markets in real time &mdash; replacing quarterly research cycles with a live dashboard. Instead of waiting three months to find out how your brand is performing, you know now.</div>
+        <div class="detail-expand-inner">Tracks brand health for 1,000+ brands across 21 markets in real time &mdash; replacing quarterly research cycles with a live dashboard.</div>
       </div>
     </div>
     <div class="detail-item">
       <button class="detail-trigger" onclick="toggleDetail(this)">
-        <div class="detail-num">02</div>
+        <div class="detail-num">&#8226;</div>
         <div class="detail-label">
           <div class="detail-label-title"><em>PRophet</em></div>
           <div class="detail-label-hint">AI-powered earned media prediction</div>
@@ -942,12 +885,12 @@ footer {
         <div class="detail-toggle">+ more</div>
       </button>
       <div class="detail-expand">
-        <div class="detail-expand-inner">Uses AI to predict which journalists will cover a story before it's ever pitched. Turns PR from a spray-and-pray discipline into a precision-targeted one. The system learns from outcomes and gets sharper over time.</div>
+        <div class="detail-expand-inner">Uses AI to predict which journalists will cover a story before it's ever pitched.</div>
       </div>
     </div>
     <div class="detail-item">
       <button class="detail-trigger" onclick="toggleDetail(this)">
-        <div class="detail-num">03</div>
+        <div class="detail-num">&#8226;</div>
         <div class="detail-label">
           <div class="detail-label-title">Smart<em>Assets</em></div>
           <div class="detail-label-hint">Creative performance scoring</div>
@@ -955,27 +898,27 @@ footer {
         <div class="detail-toggle">+ more</div>
       </button>
       <div class="detail-expand">
-        <div class="detail-expand-inner">Scores a brand's entire creative library for predicted performance. Before you run something, you have a data-informed read on how it's likely to perform &mdash; across formats, channels, and audiences. Helps creative teams make better decisions, not just faster ones.</div>
+        <div class="detail-expand-inner">Scores a brand's entire creative library for predicted performance.</div>
       </div>
     </div>
     <div class="detail-item">
       <button class="detail-trigger" onclick="toggleDetail(this)">
-        <div class="detail-num">04</div>
+        <div class="detail-num">&#8226;</div>
         <div class="detail-label">
           <div class="detail-label-title">STAGE <em>AI</em></div>
-          <div class="detail-label-hint">Assembly's full-stack media operating system</div>
+          <div class="detail-label-hint">Assembly's media operating system</div>
         </div>
         <div class="detail-toggle">+ more</div>
       </button>
       <div class="detail-expand">
-        <div class="detail-expand-inner">Assembly's media operating system connects 400+ data sources and runs planning, buying, and optimization, with the ID Graph providing the audience foundation underneath. This is the product where the data infrastructure and the software platform converge most directly.</div>
+        <div class="detail-expand-inner">Assembly's media operating system &mdash; connects 400+ data sources and runs planning, buying, and optimization, with the ID Graph providing the audience foundation underneath.</div>
       </div>
     </div>
   </div>
 
   <div class="context-card fade-in" style="margin-top:40px;max-width:680px;">
-    <h4>One nuance worth knowing</h4>
-    <p>Not all Marketing Cloud products share a data layer &mdash; STAGE AI and audience strategy tools connect to the ID Graph; others like SmartAssets and PRophet operate more independently. The shared dashboard gives users a unified experience across the suite. What could eventually connect the applications at a deeper level is The Machine.</p>
+    <h4>One nuance worth having language for</h4>
+    <p>Not all Marketing Cloud products share the same data layer. STAGE AI and audience strategy tools connect to the ID Graph; others like SmartAssets and PRophet operate more independently. The platform's shared dashboard creates a unified experience across the suite. The Palantir partnership is specifically designed to work across "Code and Theory's orchestration level software and The Marketing Cloud's proprietary data sources" &mdash; connecting the three parts of Stagwell's stack.</p>
   </div>
 </section>
 
@@ -990,7 +933,7 @@ footer {
   <div class="bl-grid">
     <div class="bl-card fade-in">
       <h4>The Machine</h4>
-      <p>The workflow changes. Not better tools on the same process &mdash; a fundamentally different operating model where strategy, creative, and production run as one continuously learning system.</p>
+      <p>Plugs into the tools you already use &mdash; Figma, Slack, Adobe, Teams &mdash; and turns disconnected workflows into one unified system. Every campaign makes the next one faster, smarter, and more effective. Marketing that finally builds on itself.</p>
     </div>
     <div class="bl-card fade-in">
       <h4>Palantir + ID Graph</h4>
@@ -1003,7 +946,8 @@ footer {
   </div>
 
   <div class="pull-quote fade-in" style="margin-top:56px;position:relative;z-index:1;">
-    <p>The holding company of the future is built on proprietary intelligence &mdash; not just talent and relationships.</p>
+    <p>Stagwell's ability to deliver best-in-class solutions for clients and lead the industry through the AI era.</p>
+    <div class="attrib">&mdash; Mark Penn, Chairman & CEO, Stagwell</div>
   </div>
 </section>
 
