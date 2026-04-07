@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stagwell Technology Briefing</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #0a0a14;
+  --bg2:      #10101e;
+  --surface:  #15152a;
+  --rule:     #2a2a44;
+  --text:     #f0f0f8;
+  --muted:    #8888aa;
+  --green:    #00e87a;
+  --green-dim: rgba(0,232,122,0.12);
+  --pink:     #e85080;
+  --purple:   #b464ff;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Barlow', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky;
+  top: 0;
+  background: rgba(10,10,20,0.95);
+  border-bottom: 1px solid var(--rule);
+  padding: 0 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 54px;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+}
+
+.nav-brand {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.nav-brand em { font-style: normal; color: var(--green); }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--muted);
+  transition: color 0.15s;
+}
+
+.nav-links a:hover { color: var(--green); }
+.nav-links a.active { color: var(--green); }
+
+/* ── MOBILE NAV ── */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 24px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* ── HERO ── */
+.hero {
+  padding: 100px 60px 80px;
+  background: linear-gradient(135deg, #0a0a14 0%, #1a0a2e 50%, #2a0a1e 100%);
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(0,232,122,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  color: var(--text);
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title em { font-style: normal; color: var(--green); }
+
+.hero-sub {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #b0b0cc;
+  max-width: 620px;
+  margin-bottom: 40px;
+  font-weight: 300;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-context {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.hero-context span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-context .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  display: inline-block;
+}
+
+/* ── SCROLL CTA ── */
+.scroll-cta {
+  position: relative;
+  z-index: 1;
+  margin-top: 48px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--green);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.scroll-cta .arrow {
+  display: inline-block;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+/* ── SECTIONS ── */
+section {
+  padding: 80px 60px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.section-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  color: var(--text);
+}
+
+.section-title em { font-style: normal; color: var(--green); }
+
+.section-intro {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #b0b0cc;
+  max-width: 680px;
+  margin-bottom: 48px;
+  font-weight: 300;
+}
+
+/* ── OVERVIEW GRID ── */
+.overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 48px;
+}
+
+.overview-card {
+  background: var(--bg2);
+  padding: 32px 28px 28px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  position: relative;
+}
+
+.overview-card:hover { background: var(--surface); }
+
+.overview-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 28px;
+  right: 28px;
+  height: 2px;
+  background: var(--green);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+
+.overview-card:hover::after { transform: scaleX(1); }
+
+.oc-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--green);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.oc-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.oc-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 2px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.tag-machine { background: rgba(0,232,122,0.1); color: var(--green); }
+.tag-data { background: rgba(180,100,255,0.12); color: var(--purple); }
+.tag-cloud { background: rgba(232,80,128,0.12); color: var(--pink); }
+
+.oc-body {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.oc-cta {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-top: 16px;
+  transition: letter-spacing 0.2s;
+}
+
+.overview-card:hover .oc-cta { letter-spacing: 0.18em; }
+
+/* ── PRODUCT DEEP DIVES ── */
+.product-section {
+  padding: 80px 60px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.product-section:nth-child(even) { background: var(--bg2); }
+
+.product-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+
+.product-header-text { flex: 1; max-width: 680px; }
+
+.product-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 2px;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.product-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.05;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.product-title em { font-style: normal; color: var(--green); }
+
+.product-meta {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  margin-bottom: 24px;
+  line-height: 1.7;
+}
+
+.product-desc {
+  font-size: 16px;
+  line-height: 1.75;
+  color: #b0b0cc;
+  font-weight: 300;
+}
+
+.product-desc p { margin-bottom: 20px; }
+
+/* ── PULL QUOTE ── */
+.pull-quote {
+  border-top: 1px solid var(--green);
+  border-bottom: 1px solid var(--green);
+  padding: 28px 0;
+  margin: 44px 0;
+}
+
+.pull-quote p {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-transform: uppercase;
+  color: var(--green);
+  letter-spacing: 0.02em;
+}
+
+.pull-quote .attrib {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: none;
+  letter-spacing: 0.06em;
+  margin-top: 12px;
+  font-weight: 400;
+}
+
+/* ── EXPANDABLE DETAILS ── */
+.detail-accordion {
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 40px;
+}
+
+.detail-item { border-bottom: 1px solid var(--rule); }
+.detail-item:last-child { border-bottom: none; }
+
+.detail-trigger {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: var(--bg2);
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.15s;
+  text-align: left;
+}
+
+.detail-trigger:hover { background: var(--surface); }
+.detail-trigger.open { background: var(--surface); }
+
+.detail-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--green);
+  padding: 18px 16px;
+  border-right: 1px solid var(--rule);
+  width: 56px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.detail-label {
+  padding: 18px 22px;
+  flex: 1;
+}
+
+.detail-label-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.detail-label-title em { font-style: normal; color: var(--green); }
+
+.detail-label-hint {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.detail-toggle {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: var(--green);
+  letter-spacing: 0.08em;
+  padding: 18px 20px;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.detail-expand {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  background: var(--surface);
+  border-top: 0px solid var(--rule);
+}
+
+.detail-expand.open {
+  max-height: 600px;
+  border-top-width: 1px;
+}
+
+.detail-expand-inner {
+  padding: 20px 22px 24px 22px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #b0b0cc;
+}
+
+/* ── STAT STRIP ── */
+.stat-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 40px;
+}
+
+.stat-item {
+  background: var(--bg2);
+  padding: 24px 22px;
+  text-align: center;
+}
+
+.stat-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--green);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── COMPETITIVE CONTEXT ── */
+.context-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 40px;
+  align-items: start;
+}
+
+.context-card {
+  background: var(--bg2);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 28px 24px;
+}
+
+.context-card h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+
+.context-card p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #b0b0cc;
+  margin-bottom: 12px;
+}
+
+.context-card p:last-child { margin-bottom: 0; }
+
+/* ── BOTTOM LINE ── */
+.bottom-line {
+  padding: 80px 60px;
+  background: linear-gradient(135deg, #0a0a14 0%, #1a0a2e 50%, #2a0a1e 100%);
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+  overflow: hidden;
+}
+
+.bottom-line::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(0,232,122,0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.bl-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  margin-top: 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.bl-card {
+  border-left: 2px solid var(--green);
+  padding-left: 20px;
+}
+
+.bl-card h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.bl-card p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #b0b0cc;
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 32px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg);
+}
+
+.footer-brand {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+.footer-note {
+  font-size: 11px;
+  color: var(--muted);
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* ── ANIMATIONS ── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .overview-grid { grid-template-columns: 1fr; }
+  .context-grid { grid-template-columns: 1fr; }
+  .bl-grid { grid-template-columns: 1fr; }
+  .product-header { flex-direction: column; }
+  .stat-strip { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  nav { padding: 0 24px; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 54px;
+    left: 0;
+    right: 0;
+    background: rgba(10,10,20,0.98);
+    flex-direction: column;
+    padding: 16px 24px;
+    gap: 16px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-links.open { display: flex; }
+  .nav-toggle { display: block; }
+  .hero { padding: 60px 24px 50px; }
+  .hero-title { font-size: 44px; }
+  section, .product-section, .bottom-line { padding: 50px 24px; }
+  .section-title, .product-title { font-size: 32px; }
+  .pull-quote p { font-size: 22px; }
+  .detail-num { display: none; }
+  .hero-context { flex-direction: column; gap: 10px; }
+  footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Stagwell <em>Technology</em> Briefing</div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation">&#9776;</button>
+  <ul class="nav-links">
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#machine">The Machine</a></li>
+    <li><a href="#palantir">Palantir + ID Graph</a></li>
+    <li><a href="#cloud">Marketing Cloud</a></li>
+    <li><a href="#bottom-line">The Bottom Line</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-eyebrow">Pre-Briefing Read &middot; April 2026</div>
+  <h1 class="hero-title">Know What<br><em>We're Selling.</em></h1>
+  <p class="hero-sub">Three technology platforms underpin everything Stagwell is building. This is a plain-language guide to what they are, why they matter, and what makes each one distinctive &mdash; written for the people who need to tell that story.</p>
+  <div class="hero-context">
+    <span><span class="dot"></span>Prepared for CEO briefing</span>
+    <span><span class="dot"></span>TV spot creative brief</span>
+    <span><span class="dot"></span>Confidential &middot; internal use</span>
+  </div>
+  <div class="scroll-cta">
+    <span class="arrow">&darr;</span> Scroll to explore the three platforms
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <div class="section-eyebrow">The Portfolio</div>
+  <h2 class="section-title">Three platforms. <em>One story.</em></h2>
+  <p class="section-intro">Each product solves a different problem. Together they form a technology thesis: that the holding company of the future is built on proprietary intelligence, not just talent and relationships.</p>
+
+  <div class="overview-grid">
+    <a href="#machine" class="overview-card" style="text-decoration:none;color:inherit;">
+      <div class="oc-num">01</div>
+      <span class="oc-tag tag-machine">Agentic OS</span>
+      <div class="oc-title">The Machine</div>
+      <div class="oc-body">An AI operating system that orchestrates people, tools, and data. Built by Code and Theory. Launched CES 2026.</div>
+      <div class="oc-cta">&rarr; Deep dive</div>
+    </a>
+    <a href="#palantir" class="overview-card" style="text-decoration:none;color:inherit;">
+      <div class="oc-num">02</div>
+      <span class="oc-tag tag-data">Data Infrastructure</span>
+      <div class="oc-title">Palantir + ID Graph</div>
+      <div class="oc-body">A proprietary identity system paired with Palantir's Foundry platform. The audience backbone for everything else.</div>
+      <div class="oc-cta">&rarr; Deep dive</div>
+    </a>
+    <a href="#cloud" class="overview-card" style="text-decoration:none;color:inherit;">
+      <div class="oc-num">03</div>
+      <span class="oc-tag tag-cloud">Software Platform</span>
+      <div class="oc-title">Marketing Cloud</div>
+      <div class="oc-body">Purpose-built marketing software sold across the network and directly to clients. 34% organic growth in 2025.</div>
+      <div class="oc-cta">&rarr; Deep dive</div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- THE MACHINE -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="product-section" id="machine">
+  <div class="product-header">
+    <div class="product-header-text">
+      <span class="product-badge tag-machine">01 &middot; Agentic OS</span>
+      <h2 class="product-title">The <em>Machine.</em></h2>
+      <div class="product-meta">
+        Built by Code and Theory &middot; Launched CES 2026<br>
+        Clients: Qualcomm, TIME, Stanley Black & Decker, T. Rowe Price, Henry Schein
+      </div>
+      <div class="product-desc">
+        <p>The Machine is an AI operating system that unifies people, tools, and data to orchestrate more intelligent work. It ingests and acts on large volumes of private, secure signals &mdash; client data, Stagwell proprietary sources, world knowledge, and trusted third parties &mdash; and uses all of that to make work faster, smarter, and more connected to real consumer behavior.</p>
+        <p>It has its own interface and also runs inside tools people already use &mdash; Adobe, Slack, Teams &mdash; through purpose-built plugins called <strong>Mini-Machines</strong>. It is platform-agnostic and API-first.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pull-quote fade-in">
+    <p>The holdcos built AI on top of existing agency structures. The Machine is built around a different premise: that the workflow itself changes.</p>
+  </div>
+
+  <div class="product-desc fade-in" style="max-width:680px;margin-bottom:40px;">
+    <p>Strategy, creative, and production stop being sequential handoffs and become an orchestrated, continuously running system &mdash; where every brief informs an asset, every asset informs a buy, and the whole thing gets smarter over time.</p>
+  </div>
+
+  <div class="section-eyebrow fade-in">What it actually does</div>
+  <h3 class="section-title fade-in" style="font-size:32px;margin-bottom:24px;">Four live <em>use cases.</em></h3>
+
+  <div class="detail-accordion fade-in">
+    <div class="detail-item">
+      <button class="detail-trigger" onclick="toggleDetail(this)">
+        <div class="detail-num">01</div>
+        <div class="detail-label">
+          <div class="detail-label-title">Brand <em>Affinity</em></div>
+          <div class="detail-label-hint">AI-powered positioning and cultural white space analysis</div>
+        </div>
+        <div class="detail-toggle">+ more</div>
+      </button>
+      <div class="detail-expand">
+        <div class="detail-expand-inner">Identifies positioning opportunities and cultural white space through AI-powered market analysis, then helps craft strategies that authentically connect with target audiences. Turns what used to be months of brand strategy work into a continuously updated, intelligence-driven process.</div>
+      </div>
+    </div>
+    <div class="detail-item">
+      <button class="detail-trigger" onclick="toggleDetail(this)">
+        <div class="detail-num">02</div>
+        <div class="detail-label">
+          <div class="detail-label-title">Hyper <em>Targeting</em></div>
+          <div class="detail-label-hint">Precision content variations at scale</div>
+        </div>
+        <div class="detail-toggle">+ more</div>
+      </button>
+      <div class="detail-expand">
+        <div class="detail-expand-inner">Creates precision-targeted content variations at scale &mdash; dozens of versions in the time it traditionally takes to produce one &mdash; personalized across channels, markets, and audience segments. The creative doesn't just get made faster; it gets made smarter, with each variation informed by real audience data.</div>
+      </div>
+    </div>
+    <div class="detail-item">
+      <button class="detail-trigger" onclick="toggleDetail(this)">
+        <div class="detail-num">03</div>
+        <div class="detail-label">
+          <div class="detail-label-title">Reactive <em>Campaigns</em></div>
+          <div class="detail-label-hint">From cultural signal to live campaign, fast</div>
+        </div>
+        <div class="detail-toggle">+ more</div>
+      </button>
+      <div class="detail-expand">
+        <div class="detail-expand-inner">Monitors cultural signals and trending moments in real time, then activates instantly with the right talent and influencers &mdash; from signal to live campaign in a fraction of traditional timelines. The window of relevance is shrinking; this is how you stay inside it.</div>
+      </div>
+    </div>
+    <div class="detail-item">
+      <button class="detail-trigger" onclick="toggleDetail(this)">
+        <div class="detail-num">04</div>
+        <div class="detail-label">
+          <div class="detail-label-title"><em>Optimization</em></div>
+          <div class="detail-label-hint">Real-time creative and spend refinement</div>
+        </div>
+        <div class="detail-toggle">+ more</div>
+      </button>
+      <div class="detail-expand">
+        <div class="detail-expand-inner">Surfaces actionable insights from campaign data to continuously refine creative, optimize spend, and prove ROI &mdash; with reporting intelligence that updates assets in real time. Not a dashboard you check at the end of the quarter. A system that makes the work better while it's running.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- PALANTIR + ID GRAPH -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="product-section" id="palantir">
+  <div class="product-header">
+    <div class="product-header-text">
+      <span class="product-badge tag-data">02 &middot; Data Infrastructure</span>
+      <h2 class="product-title">Palantir + the <em>ID Graph.</em></h2>
+      <div class="product-meta">
+        Partnership announced November 2025<br>
+        The ID Graph underpins Stagwell's media and audience strategy tools
+      </div>
+      <div class="product-desc">
+        <p>The ID Graph is Stagwell's proprietary identity infrastructure &mdash; a system that connects a person's various digital signals (devices, email addresses, behavioral data, location patterns) into a single unified profile. This is what makes it possible to recognize the same person across different channels without relying on third-party cookies.</p>
+        <p>It powers Stagwell's media planning, buying, and audience strategy tools &mdash; giving those products a first-party-grounded view of who the audience actually is.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="stat-strip fade-in">
+    <div class="stat-item">
+      <div class="stat-num">85%</div>
+      <div class="stat-label">Stock move on announcement</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">1st</div>
+      <div class="stat-label">Ad holding co. Palantir partnered with</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Harvard</div>
+      <div class="stat-label">OpenDP differential privacy framework</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">U.S. Census</div>
+      <div class="stat-label">Same privacy tech used by</div>
+    </div>
+  </div>
+
+  <div class="pull-quote fade-in">
+    <p>"The holy grail of marketing."</p>
+    <div class="attrib">&mdash; Mark Penn, Stagwell CEO</div>
+  </div>
+
+  <div class="context-grid fade-in">
+    <div class="context-card">
+      <h4>Why Palantir matters</h4>
+      <p>Palantir's Foundry platform was built to process extraordinarily complex, large-scale data problems &mdash; originally for defense and intelligence. The partnership brings that infrastructure to marketing: the ability to work across tens of millions of audience records with precision and privacy architecture most marketing data stacks can't handle.</p>
+      <p>Palantir essentially never partners with advertising companies. Their reference clients are governments and defense departments. The fact that they entered marketing at all &mdash; and chose Stagwell &mdash; is the signal.</p>
+    </div>
+    <div class="context-card">
+      <h4>Competitive honest take</h4>
+      <p>Publicis (with Epsilon) and IPG (with Acxiom) have larger, more mature audience data businesses today. Stagwell's position isn't that it has the biggest data asset right now.</p>
+      <p>It's that the architecture being built with Palantir is designed for an AI-native era of targeting, not retrofitted from older infrastructure. That's a genuine technical distinction, not a marketing claim.</p>
+      <p>The privacy architecture uses differential privacy developed with Harvard's OpenDP project &mdash; the same framework the U.S. Census uses &mdash; allowing precise targeting without exposing individual-level data.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- MARKETING CLOUD -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="product-section" id="cloud">
+  <div class="product-header">
+    <div class="product-header-text">
+      <span class="product-badge tag-cloud">03 &middot; Software Platform</span>
+      <h2 class="product-title">The Marketing <em>Cloud.</em></h2>
+      <div class="product-meta">
+        Stagwell's centralized technology function &middot; 34% organic growth in 2025<br>
+        Software products purpose-built for marketing, available across the network and sold directly to clients
+      </div>
+      <div class="product-desc">
+        <p>The Marketing Cloud builds software products for specific marketing problems and makes them available across all Stagwell agencies and directly to clients. Some products are sold as software subscriptions &mdash; clients pay a recurring fee to use the tool themselves rather than paying for agency hours. That model scales without adding headcount and gets better the more it's used.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pull-quote fade-in">
+    <p>One problem solved becomes a shared capability. The network gets smarter every time any part of it figures something out.</p>
+  </div>
+
+  <div class="section-eyebrow fade-in">The Products</div>
+  <h3 class="section-title fade-in" style="font-size:32px;margin-bottom:24px;">What's actually been <em>built.</em></h3>
+
+  <div class="detail-accordion fade-in">
+    <div class="detail-item">
+      <button class="detail-trigger" onclick="toggleDetail(this)">
+        <div class="detail-num">01</div>
+        <div class="detail-label">
+          <div class="detail-label-title">Harris <em>Quest</em></div>
+          <div class="detail-label-hint">Real-time brand health tracking</div>
+        </div>
+        <div class="detail-toggle">+ more</div>
+      </button>
+      <div class="detail-expand">
+        <div class="detail-expand-inner">Tracks brand health for 1,000+ brands across 21 markets in real time &mdash; replacing quarterly research cycles with a live dashboard. Instead of waiting three months to find out how your brand is performing, you know now.</div>
+      </div>
+    </div>
+    <div class="detail-item">
+      <button class="detail-trigger" onclick="toggleDetail(this)">
+        <div class="detail-num">02</div>
+        <div class="detail-label">
+          <div class="detail-label-title"><em>PRophet</em></div>
+          <div class="detail-label-hint">AI-powered earned media prediction</div>
+        </div>
+        <div class="detail-toggle">+ more</div>
+      </button>
+      <div class="detail-expand">
+        <div class="detail-expand-inner">Uses AI to predict which journalists will cover a story before it's ever pitched. Turns PR from a spray-and-pray discipline into a precision-targeted one. The system learns from outcomes and gets sharper over time.</div>
+      </div>
+    </div>
+    <div class="detail-item">
+      <button class="detail-trigger" onclick="toggleDetail(this)">
+        <div class="detail-num">03</div>
+        <div class="detail-label">
+          <div class="detail-label-title">Smart<em>Assets</em></div>
+          <div class="detail-label-hint">Creative performance scoring</div>
+        </div>
+        <div class="detail-toggle">+ more</div>
+      </button>
+      <div class="detail-expand">
+        <div class="detail-expand-inner">Scores a brand's entire creative library for predicted performance. Before you run something, you have a data-informed read on how it's likely to perform &mdash; across formats, channels, and audiences. Helps creative teams make better decisions, not just faster ones.</div>
+      </div>
+    </div>
+    <div class="detail-item">
+      <button class="detail-trigger" onclick="toggleDetail(this)">
+        <div class="detail-num">04</div>
+        <div class="detail-label">
+          <div class="detail-label-title">STAGE <em>AI</em></div>
+          <div class="detail-label-hint">Assembly's full-stack media operating system</div>
+        </div>
+        <div class="detail-toggle">+ more</div>
+      </button>
+      <div class="detail-expand">
+        <div class="detail-expand-inner">Assembly's media operating system connects 400+ data sources and runs planning, buying, and optimization, with the ID Graph providing the audience foundation underneath. This is the product where the data infrastructure and the software platform converge most directly.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="context-card fade-in" style="margin-top:40px;max-width:680px;">
+    <h4>One nuance worth knowing</h4>
+    <p>Not all Marketing Cloud products share a data layer &mdash; STAGE AI and audience strategy tools connect to the ID Graph; others like SmartAssets and PRophet operate more independently. The shared dashboard gives users a unified experience across the suite. What could eventually connect the applications at a deeper level is The Machine.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- THE BOTTOM LINE -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="bottom-line" id="bottom-line">
+  <div class="section-eyebrow" style="position:relative;z-index:1;">The Story to Tell</div>
+  <h2 class="section-title" style="position:relative;z-index:1;">The <em>bottom line.</em></h2>
+  <p class="section-intro" style="position:relative;z-index:1;">When you walk into the briefing, here's the architecture beneath the talking points.</p>
+
+  <div class="bl-grid">
+    <div class="bl-card fade-in">
+      <h4>The Machine</h4>
+      <p>The workflow changes. Not better tools on the same process &mdash; a fundamentally different operating model where strategy, creative, and production run as one continuously learning system.</p>
+    </div>
+    <div class="bl-card fade-in">
+      <h4>Palantir + ID Graph</h4>
+      <p>The audience layer. Built for an AI-native era of targeting with defense-grade privacy architecture. Not the biggest data asset today &mdash; but the most forward-looking.</p>
+    </div>
+    <div class="bl-card fade-in">
+      <h4>Marketing Cloud</h4>
+      <p>Software that compounds. Every problem solved once becomes a capability available across the entire network. Scales without adding headcount.</p>
+    </div>
+  </div>
+
+  <div class="pull-quote fade-in" style="margin-top:56px;position:relative;z-index:1;">
+    <p>The holding company of the future is built on proprietary intelligence &mdash; not just talent and relationships.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Stagwell Technology Briefing &middot; Internal &middot; April 2026</div>
+  <div class="footer-note">Prepared for creative brief</div>
+</footer>
+
+<script>
+// Accordion toggle
+function toggleDetail(trigger) {
+  var item = trigger.parentElement;
+  var expand = item.querySelector('.detail-expand');
+  var toggle = item.querySelector('.detail-toggle');
+  var isOpen = expand.classList.contains('open');
+
+  // Close all in same accordion
+  var accordion = item.parentElement;
+  accordion.querySelectorAll('.detail-expand').forEach(function(el) {
+    el.classList.remove('open');
+  });
+  accordion.querySelectorAll('.detail-trigger').forEach(function(el) {
+    el.classList.remove('open');
+    el.querySelector('.detail-toggle').textContent = '+ more';
+  });
+
+  // Toggle clicked
+  if (!isOpen) {
+    expand.classList.add('open');
+    trigger.classList.add('open');
+    toggle.textContent = '- less';
+  }
+}
+
+// Scroll-based fade-in
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.fade-in').forEach(function(el) {
+  observer.observe(el);
+});
+
+// Active nav link on scroll
+var sections = document.querySelectorAll('section[id], .product-section[id], .bottom-line[id]');
+var navLinks = document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll', function() {
+  var scrollPos = window.scrollY + 100;
+  sections.forEach(function(section) {
+    if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+      var id = section.getAttribute('id');
+      navLinks.forEach(function(link) {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + id) {
+          link.classList.add('active');
+        }
+      });
+    }
+  });
+});
+
+// Close mobile nav on link click
+document.querySelectorAll('.nav-links a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.remove('open');
+  });
+});
+</script>
+</body>
+</html>
